@@ -1,0 +1,25 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "name": "Tech Space",
+      "budget": 10000.0000,
+      "budget_spent": 4500.0000,
+      "date_of_first_purchase": "2009-08-05"
+    },
+    {
+      "id": 2,
+      "name": "Comp X",
+      "budget": 1123.2200,
+      "budget_spent": 451.3754,
+      "date_of_first_purchase": "2010-12-14"
+    },
+    {
+      "id": 3,
+      "name": "NextGEN",
+      "budget": 20123.2200,
+      "budget_spent": 4521.9114,
+      "date_of_first_purchase": "2011-12-14"
+    }
+  ]
+}

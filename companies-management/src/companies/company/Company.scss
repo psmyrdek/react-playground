@@ -1,0 +1,44 @@
+.company {
+    display: block;
+    text-align: left;
+    width: 100%;
+    background: white;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 3px -5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.company-name {
+    background: #2d91ea;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 1px solid #2376c1;
+    border-top: 1px solid #2376c1;
+    border-right: 1px solid #2376c1;
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 10px;
+    margin: 0;
+}
+
+.company-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-left: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.company-budget {
+    background: #f9f9f9;
+    border-radius: 5px;
+    padding: 0 10px;
+    width: 200px;
+}
