@@ -9,6 +9,7 @@ export class CompaniesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       companies: [],
       companyToEdit: null,
       isModalVisible: false
@@ -21,6 +22,7 @@ export class CompaniesList extends React.Component {
   componentDidMount() {
     fetchCompanies().then((companies) => {
       this.setState({
+        isLoading: false,
         companies
       });
     });
@@ -42,6 +44,7 @@ export class CompaniesList extends React.Component {
   render() {
     return (
       <div>
+        {this.state.isLoading && <p>Fetching companies data...</p>}
         <ul className="companies-list">
           {this.state.companies.map((cmp) => (
             <li key={cmp.id}>
