@@ -47,7 +47,10 @@ export class Companies extends React.Component {
         {this.state.isLoading ? (
           <p>Fetching companies data...</p>
         ) : (
-          <CompaniesList companies={this.state.companies} onEdit={this.editCompany}/>
+          <CompaniesList
+            companies={this.state.companies}
+            onEdit={this.editCompany}
+          />
         )}
         <Modal visible={this.state.isModalVisible} onClose={this.closeModal}>
           <CompanyEditor company={this.state.companyToEdit} />

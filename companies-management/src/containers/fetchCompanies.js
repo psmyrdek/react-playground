@@ -1,4 +1,4 @@
-import {companyMapper} from './companyMapper';
+import { companyMapper } from './companyMapper';
 
 /* Returning raw promise to simulate network delay */
 export function fetchCompanies() {
@@ -7,11 +7,11 @@ export function fetchCompanies() {
       fetch('/data/companies.json')
         .then((res) => res.json())
         .then(({ companies }) => {
-          resolve(companies.map(companyMapper))
+          resolve(companies.map(companyMapper));
         })
         .catch((err) => {
-          reject(err)
-        })
-    }, 1000)
-  })
+          reject(err);
+        });
+    }, 1000);
+  });
 }
