@@ -31,11 +31,11 @@ export class CompanyEditor extends React.Component {
   renderButtons() {
     return (
       <div className='buttons'>
-        <button className='button button--secondary' type='button'>
+        <button className='button button--secondary' type='button' onClick={this.props.onCancel}>
           Cancel
         </button>
         <button
-          className='button button--primary'
+          className={`button button--primary ${!this.state.isFormValid && 'button--disabled'}`}
           type='button'
           disabled={this.state.isFormValid}>
           Save
@@ -52,10 +52,7 @@ export class CompanyEditor extends React.Component {
           onSubmit={(e) => {
             e.preventDefault();
           }}>
-          <div
-            className={`form-control ${
-              !this.state.isFormValid && 'form-control--invalid'
-            }`}>
+          <div className={`form-control ${!this.state.isFormValid && 'form-control--invalid'}`}>
             <label htmlFor='budget'>Edit budget</label>
             <input
               autoFocus='autofocus'

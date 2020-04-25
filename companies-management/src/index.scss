@@ -56,6 +56,11 @@ html, body {
   color: #2d91ea;
 }
 
+.button--disabled {
+  color: gray;
+  background: #eaeaea;
+}
+
 .button + .button {
   margin-left: 10px;
 }
