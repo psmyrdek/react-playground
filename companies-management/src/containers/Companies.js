@@ -1,11 +1,10 @@
 import React from 'react';
-import { Company } from '../company/Company';
 import { fetchCompanies } from './fetchCompanies';
-import './CompaniesList.css';
-import { Modal } from '../../generic/modal/Modal';
-import { CompanyEditor } from '../company-editor/CompanyEditor';
+import { CompaniesList } from '../companies/CompaniesList';
+import { CompanyEditor } from '../companies/CompanyEditor';
+import { Modal } from '../generic/modal/Modal';
 
-export class CompaniesList extends React.Component {
+export class Companies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,14 +43,12 @@ export class CompaniesList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.isLoading && <p>Fetching companies data...</p>}
-        <ul className="companies-list">
-          {this.state.companies.map((cmp) => (
-            <li key={cmp.id}>
-              <Company {...cmp} onEdit={() => this.editCompany(cmp.id)} />
-            </li>
-          ))}
-        </ul>
+        <h1>Companies Management</h1>
+        {this.state.isLoading ? (
+          <p>Fetching companies data...</p>
+        ) : (
+          <CompaniesList companies={this.state.companies} onEdit={this.editCompany}/>
+        )}
         <Modal visible={this.state.isModalVisible} onClose={this.closeModal}>
           <CompanyEditor company={this.state.companyToEdit} />
         </Modal>
