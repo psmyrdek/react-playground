@@ -2,3 +2,10 @@ h2 {
     margin: 0;
     padding: 0;
 }
+
+.confirmation-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

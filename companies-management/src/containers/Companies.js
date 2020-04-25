@@ -1,8 +1,9 @@
 import React from 'react';
-import { fetchCompanies } from './fetchCompanies';
 import { CompaniesList } from '../companies/CompaniesList';
 import { CompanyEditor } from '../companies/CompanyEditor';
 import { Modal } from '../generic/modal/Modal';
+import { fetchCompanies } from './utils/fetchCompanies';
+import { updateCompaniesWithBudget } from './utils/updateCompaniesWithBudget';
 
 export class Companies extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export class Companies extends React.Component {
 
     this.closeModal = this.closeModal.bind(this);
     this.editCompany = this.editCompany.bind(this);
+    this.handleBudgetUpdate = this.handleBudgetUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,13 @@ export class Companies extends React.Component {
     this.setState((state) => ({
       companyToEdit: state.companies.find((c) => c.id === companyId),
       isModalVisible: true
+    }));
+  }
+
+  handleBudgetUpdate(companyId, budget) {
+    this.setState((state) => ({
+      companies: updateCompaniesWithBudget(state.companies, companyId, budget),
+      isModalVisible: false
     }));
   }
 
@@ -50,7 +59,11 @@ export class Companies extends React.Component {
           <CompaniesList companies={this.state.companies} onEdit={this.editCompany} />
         )}
         <Modal visible={this.state.isModalVisible} onClose={this.closeModal}>
-          <CompanyEditor company={this.state.companyToEdit} onCancel={this.closeModal} />
+          <CompanyEditor
+            company={this.state.companyToEdit}
+            onCancel={this.closeModal}
+            onBudgetUpdate={this.handleBudgetUpdate}
+          />
         </Modal>
       </div>
     );

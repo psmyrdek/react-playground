@@ -1,4 +1,4 @@
-import { companyMapper } from './companyMapper';
+import { companyMapper } from '../companyMapper';
 
 /* Returning raw promise to simulate network delay */
 export function fetchCompanies() {
